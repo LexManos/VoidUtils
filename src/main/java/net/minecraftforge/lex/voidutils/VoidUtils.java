@@ -51,12 +51,14 @@ public class VoidUtils
     {
         public static final Block quarry = null;
         public static final Block energy_cell = null;
+        public static final Block scanner = null;
     }
     @ObjectHolder(MODID)
     public static class Items
     {
         public static final Item quarry = null;
         public static final Item energy_cell = null;
+        public static final Item scanner = null;
     }
 
     @EventHandler
@@ -96,11 +98,13 @@ public class VoidUtils
     {
         event.getRegistry().registerAll(
             new BlockQuarry().setRegistryName(MODID, "quarry").setCreativeTab(CreativeTabs.BUILDING_BLOCKS),
-            new BlockEnergyCell().setRegistryName(MODID, "energy_cell").setCreativeTab(CreativeTabs.BUILDING_BLOCKS)
+            new BlockEnergyCell().setRegistryName(MODID, "energy_cell").setCreativeTab(CreativeTabs.BUILDING_BLOCKS),
+            new BlockScanner().setRegistryName(MODID, "scanner").setCreativeTab(CreativeTabs.BUILDING_BLOCKS)
         );
         //If only TEs were a registry.. HUMM MOJANG HUMMMMMMMMMMMMM!!!!
         GameRegistry.registerTileEntity(TileEntityQuarry.class, MODID + ".quarry");
         GameRegistry.registerTileEntity(TileEntityEnergyCell.class, MODID + ".energy_cell");
+        GameRegistry.registerTileEntity(TileEntityScanner.class, MODID + ".scanner");
     }
 
     @SubscribeEvent
@@ -108,7 +112,8 @@ public class VoidUtils
     {
         Block[] blocks = {
             Blocks.quarry,
-            Blocks.energy_cell
+            Blocks.energy_cell,
+            Blocks.scanner
         };
         for (Block block : blocks)
             event.getRegistry().register(new ItemBlock(block).setRegistryName(block.getRegistryName()));

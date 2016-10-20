@@ -1,0 +1,21 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "top": "blocks/clay",
+      "front": "blocks/furnace_front_off",
+      "side": "blocks/clay"
+    }
+  },
+  "variants": {
+    "facing": {
+      "north": { "model": "orientable", "y":   0},
+      "east":  { "model": "orientable", "y":  90},
+      "south": { "model": "orientable", "y": 180},
+      "west":  { "model": "orientable", "y": 270}
+    },
+    "inventory": [
+      { "model": "orientable", "y": 0}
+    ]
+  }
+}

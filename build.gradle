@@ -14,7 +14,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 
 version = '1.0'
 group = 'net.minecraftforge.lex'
-archivesBaseName = 'ReverseQuarry'
+archivesBaseName = 'VoidUtils'
 
 sourceCompatibility = targetCompatibility = "1.6" // Need this here so eclipse task generates correctly.
 compileJava {
