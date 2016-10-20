@@ -1,0 +1,51 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url = "http://files.minecraftforge.net/maven" }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+    }
+}
+plugins {
+    id 'com.github.hierynomus.license' version '0.13.1'
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+version = '1.0'
+group = 'net.minecraftforge.lex'
+archivesBaseName = 'ReverseQuarry'
+
+sourceCompatibility = targetCompatibility = "1.6" // Need this here so eclipse task generates correctly.
+compileJava {
+    sourceCompatibility = targetCompatibility = "1.6"
+}
+
+minecraft {
+    version = "1.10.2-12.18.1.2094"
+    runDir = "run"
+	mappings = "snapshot_20160926"
+}
+
+dependencies {
+    compile 'net.minecraftforge.lex:YUNoMakeGoodMap:1.10.2-6.1.0.22:universal'
+}
+
+processResources
+{
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+        
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
+
+license {
+	skipExistingHeaders = true
+}
